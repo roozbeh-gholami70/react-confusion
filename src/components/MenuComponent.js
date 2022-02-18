@@ -7,10 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function RenderMenuItem(props){
     return(
-        <Card onClick={()=>props.onClick(props.dish.id)}>
+        <Card onClick={()=>props.onClick(props.dish.id)} body
+        color="secondary"
+        outline>
             <CardImg width="100%" src={props.dish.image} alt={props.dish.name} />
             <CardImgOverlay>
-                <CardTitle tag="h6">
+                <CardTitle tag="h5">
                     {props.dish.name}
                 </CardTitle>
             </CardImgOverlay>
@@ -27,7 +29,8 @@ const Menu = (props) => {
     });
     return (
         <div className="container">
-            <div className="row">
+
+            <div className="row" >
                 {menu}
             </div>
         </div>

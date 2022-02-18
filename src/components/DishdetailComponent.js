@@ -5,10 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function RenderDish({dish}) {
     return(
-            <Card>
+            <Card body
+            color="secondary"
+            outline>
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
-                        <CardTitle tag="h6">
+                        <CardTitle tag="h5">
                                 {dish.name}
                         </CardTitle>
                     <CardText>{dish.description}</CardText>
@@ -28,7 +30,9 @@ function RenderComment(props) {
             );
         });
     return(
-        <Card >
+        <Card body
+        color="secondary"
+        outline>
             <CardTitle>
                 Comments
             </CardTitle>
