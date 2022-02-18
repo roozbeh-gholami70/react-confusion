@@ -5,13 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class DishDetail extends Component {
     constructor(props) {
         super(props);
-
+        console.log(this.props);
     }
+    
     componentDidMount() {
         console.log("componentDidMount is invoke!");
     }
-
-
+    
     renderDish(dish) {
             return(
                     <Card>
@@ -27,8 +27,9 @@ class DishDetail extends Component {
     }
 
     render() {
-        if (this.props.selectedDish != null){
-            const mycomment = this.props.selectedDish.comments.map((comm) => {
+        console.log(this.props.dish);
+        if (this.props.dish != null){
+            const mycomment = this.props.dish.comments.map((comm) => {
                 return (
                     <div key={comm.id}>
                         <CardText>{comm.comment}</CardText>
@@ -40,7 +41,7 @@ class DishDetail extends Component {
             return ( 
             <div className="row">
                 <div className="col-12 col-md-5 m-1" >
-                    {this.renderDish(this.props.selectedDish)}
+                    {this.renderDish(this.props.dish)}
                 </div>
                 <div className="col-12 col-md-5 m-1" >
                     <Card >
