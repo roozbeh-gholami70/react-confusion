@@ -41,7 +41,7 @@ class DishDetail extends Component {
                 return (
                     <div key={comm.id}>
                         <CardText>{comm.comment}</CardText>
-                        <CardText>--{comm.author}, {comm.date}</CardText>
+                        <CardText>--{comm.author}, {new Date(comm.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }</CardText>
                         <br />
                     </div>
                 );
@@ -51,12 +51,15 @@ class DishDetail extends Component {
                 <div className="col-12 col-md-5 m-1" >
                     {this.renderDish(this.props.selectedDish)}
                 </div>
-                <Card className="col-12 col-md-5 m-1" >
-                    <CardTitle>
-                        Comments
-                    </CardTitle>
-                    {mycomment}
-                </Card>
+                <div className="col-12 col-md-5 m-1" >
+                    <Card >
+                        <CardTitle>
+                            Comments
+                        </CardTitle>
+                        {mycomment}
+                    </Card>
+                </div>
+                
             </div>
             );
         }
