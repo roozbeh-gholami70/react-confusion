@@ -10,7 +10,7 @@ function RenderMenuItem(props){
         <Card onClick={()=>props.onClick(props.dish.id)}>
             <CardImg width="100%" src={props.dish.image} alt={props.dish.name} />
             <CardImgOverlay>
-                <CardTitle>
+                <CardTitle tag="h6">
                     {props.dish.name}
                 </CardTitle>
             </CardImgOverlay>

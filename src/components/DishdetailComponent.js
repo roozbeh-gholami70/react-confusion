@@ -8,7 +8,7 @@ function RenderDish({dish}) {
             <Card>
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
-                        <CardTitle>
+                        <CardTitle tag="h6">
                                 {dish.name}
                         </CardTitle>
                     <CardText>{dish.description}</CardText>
