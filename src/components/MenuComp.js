@@ -12,7 +12,7 @@ class Menu extends Component {
         };
     }
     componentDidMount() {
-        console.log("did mount is invoke!");
+        console.log("componentDidMount is invoke!");
     }
     onDishSelect(dish) {
         this.setState({ 

@@ -8,14 +8,12 @@ class DishDetail extends Component {
 
     }
     componentDidMount() {
-        console.log("did mount is invoke!");
+        console.log("componentDidMount is invoke!");
     }
 
 
     renderDish(dish) {
-        if (dish != null){
             return(
-                <div>
                     <Card>
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                             <CardBody>
@@ -25,14 +23,7 @@ class DishDetail extends Component {
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </Card>
-                </div>
             );
-        }
-        else {
-            return (
-                <div></div>
-            );
-        }
     }
 
     render() {
