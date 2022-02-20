@@ -7,6 +7,15 @@ body {
     text-align: center;
 }
 
+p.image-title {
+    text-align: center;
+    color:black;
+    font-size: 1.3em;
+    font-style: normal;
+    text-decoration: none;
+}
+
+
 span.lower-text {
     color: #ffc300;
     font-size: 25px;
@@ -33,5 +42,13 @@ span.lower-text {
     transform: translateY(-20px);
     box-shadow: 0 22px 43px rgba(0, 0, 0, 0.32);
     cursor: pointer;
+    border-radius: 5px;
+}
+.home-hover-div:hover {
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+    box-shadow: 0 22px 43px rgba(0, 0, 0, 0.32);
+    cursor: default;
     border-radius: 5px;
 }
