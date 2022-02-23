@@ -26,8 +26,8 @@ class CommentForm extends Component{
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating,
+                            values.author, values.comment);
     }
 
 
@@ -131,7 +131,7 @@ function RenderComment(props) {
                 Comments
             </CardTitle>
             {mycomment}
-            <CommentForm />
+            <CommentForm dishId={props.dishId} addComment={props.addComment} />
         </Card>
     );
 }
@@ -156,7 +156,9 @@ const DishDetail = (props) => {
                             <RenderDish dish={props.dish} />
                         </div>
                         <div className="col-12 col-md-6 " >
-                            <RenderComment dish={props.comments} />
+                            <RenderComment dish={props.comments} 
+                                addComment={props.addComment}
+                                dishId={props.dish.id}/>
                         </div>
                     </div>
                 </div>
