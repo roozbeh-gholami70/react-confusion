@@ -3,18 +3,19 @@ import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } 
 import {Link} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 
 
 
-function RenderMenuItem(props){
+function RenderMenuItem({ dish }){
     return(
         <Card>
-            <Link to= {`/menu/${props.dish.id}`}>
-                <CardImg width="100%" src={props.dish.image} alt={props.dish.name} />
+            <Link to= {`/menu/${dish.id}`}>
+                <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                 <CardImgOverlay>
                     <CardTitle tag="h6">
-                        {props.dish.name}
+                        {dish.name}
                     </CardTitle>
                 </CardImgOverlay>
             </Link>
