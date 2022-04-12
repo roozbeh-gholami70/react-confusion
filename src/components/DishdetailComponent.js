@@ -7,6 +7,8 @@ import {Control, LocalForm, Errors} from 'react-redux-form';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-transition-group';
+
 
 
 const required = (val) => val && val.length;
@@ -106,6 +108,11 @@ class CommentForm extends Component{
 
 function RenderDish({dish}) {
     return(
+        <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
             <Card>
                 <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
@@ -115,6 +122,8 @@ function RenderDish({dish}) {
                     <CardText>{dish.description}</CardText>
                 </CardBody>
             </Card>
+            </FadeTransform>
+        
     );
 }
 
@@ -122,11 +131,16 @@ function RenderDish({dish}) {
 function RenderComment(props) {
     const mycomment = props.dish.map((comm) => {
         return (
-            <div key={comm.id}>
-                <CardText>{comm.comment}</CardText>
-                <CardText>--{comm.author}, {new Date(comm.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }</CardText>
-                <br />
-            </div>
+            <Stagger in>
+                <Fade in>
+                    <div key={comm.id}>
+                        
+                        <CardText>{comm.comment}</CardText>
+                        <CardText>--{comm.author}, {new Date(comm.date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }</CardText>
+                        <br />   
+                    </div>
+                </Fade>
+            </Stagger>
         );
     });
     return(
